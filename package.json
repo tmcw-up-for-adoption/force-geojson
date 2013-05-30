@@ -8,7 +8,7 @@
     "bin": {
         "force-geojson": "./bin/force-geojson"
     },
-    "repository": "",
+    "repository": "git@github.com:tmcw/force-geojson.git",
     "author": "Tom MacWright <tom@macwright.org>",
     "license": "BSD",
     "dependencies": {
