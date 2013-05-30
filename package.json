@@ -1,0 +1,18 @@
+{
+    "name": "force-geojson",
+    "version": "0.0.0",
+    "description": "d3's force directed graphs serialized to geojson",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "bin": {
+        "force-geojson": "./bin/force-geojson"
+    },
+    "repository": "",
+    "author": "Tom MacWright <tom@macwright.org>",
+    "license": "BSD",
+    "dependencies": {
+        "d3": "~3.1.10",
+        "optimist": "~0.5.0"
+    }
+}

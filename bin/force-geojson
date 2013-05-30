@@ -1,0 +1,59 @@
+#!/usr/bin/env node
+
+var d3 = require('d3'),
+    fs = require('fs'),
+    argv = require('optimist')
+        .default('times', 1000)
+        .default('padx', 20)
+        .default('pady', 40)
+        .argv;
+
+var graph = JSON.parse(fs.readFileSync(argv._[0])),
+    xoffset = 180 + (argv.padx / 2),
+    yoffset = 90 + (argv.pady / 2),
+    force = d3.layout.force()
+    .charge(-30)
+    .linkDistance(30)
+    .size([
+        360 - argv.padx,
+        180 - argv.pady
+    ]);
+
+force
+    .nodes(graph.nodes)
+    .links(graph.links)
+    .start();
+
+while (argv.times--) force.tick();
+
+force.stop();
+
+console.log(JSON.stringify({
+    type: 'FeatureCollection',
+    features: graph.nodes.map(nodeToPoint).concat(graph.links.map(linkToString))
+}, null, 4));
+
+function nodeToPoint(n) {
+    return {
+        type: 'Feature',
+        properties: n,
+        geometry: {
+            type: 'Point',
+            coordinates: [n.x - xoffset, n.y - yoffset]
+        }
+    };
+}
+
+function linkToString(e) {
+    return {
+        type: 'Feature',
+        properties: e,
+        geometry: {
+            type: 'LineString',
+            coordinates: [
+                [e.source.x - xoffset, e.source.y - yoffset],
+                [e.target.x - xoffset, e.target.y - yoffset]
+            ]
+        }
+    };
+}
