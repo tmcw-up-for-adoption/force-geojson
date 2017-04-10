@@ -1,5 +1,7 @@
 # force-geojson
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/tmcw/force-geojson.svg)](https://greenkeeper.io/)
+
 [![Dependency Status](https://gemnasium.com/tmcw/force-geojson.png)](https://gemnasium.com/tmcw/force-geojson)
 
 [![](http://api.tiles.mapbox.com/v3/tmcw.miserables/0,0,2/400x300.png)](http://a.tiles.mapbox.com/v3/tmcw.miserables/page.html#1.00/0/20)
