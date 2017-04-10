@@ -12,7 +12,7 @@
     "author": "Tom MacWright <tom@macwright.org>",
     "license": "BSD",
     "dependencies": {
-        "d3": "~3.2.7",
+        "d3": "~4.7.4",
         "optimist": "~0.6.0"
     }
 }
